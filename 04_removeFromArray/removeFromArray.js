@@ -4,8 +4,8 @@ Function work with strings
 Function only removes same type (ex: does not remove an integer if element is a string)
 */
 
-const removeFromArray = function(arr, ...theArgs) { // arr, elem
-  if (arr.length === 2) { // remove single element
+const removeFromArray = function(arr, ...theArgs) { // ...variable is used as rest paramter (indefinite amount of arguments)
+  if (theArgs.length === 1) { // remove single element
     let elem = arguments[1];
     for (let i = 0; i < arr.length; i++) {
       if (arr[i] === elem) {
@@ -16,7 +16,7 @@ const removeFromArray = function(arr, ...theArgs) { // arr, elem
     for (let i = 0; i < arr.length; i++) {
       for (let j = 0; j < theArgs.length; j++) {
         if (arr[i] === theArgs[j]) {
-          arr.splice(i, 1);
+          arr.splice(i, 1); // adjusts length of array, and shifts elements
           i--; // Decrement the index to account for the removed element
           break; // Break out of the inner loop since the element has been removed
         }
